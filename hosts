@@ -1,0 +1,33 @@
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+13.250.177.223  github.com
+127.0.0.1	localhost
+255.255.255.255	broadcasthost
+::1             localhost
+0.0.0.0 account.jetbrains.com
+
+## MxSrvs ##
+127.0.0.1 www.zf.com
+127.0.0.1 www.fz.com
+127.0.0.1 www.laht.com
+127.0.0.1 www.hyht.com
+127.0.0.1 www.yadmin.com
+127.0.0.1 www.hy.com
+127.0.0.1 www.seo.com
+127.0.0.1 www.ys.com
+127.0.0.1 www.hyo.com
+127.0.0.1 www.lar.com
+127.0.0.1 www.tpcs.com
+127.0.0.1 bs.mxss.com
+127.0.0.1 wg.mxss.com
+127.0.0.1 pma.mxss.com
+127.0.0.1 www.sublimetext.com
+127.0.0.1 license.sublimehq.com
+0.0.0.0 account.jetbrains.com
+192.168.10.10 larabbs.test
+127.0.0.1 www.sublimetext.com
+127.0.0.1 license.sublimehq.com
