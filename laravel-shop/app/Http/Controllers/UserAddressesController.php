@@ -2,26 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserAddressRequest;
+use App\Models\UserAddress;
 use Illuminate\Http\Request;
 
 class UserAddressesController extends Controller
 {
+    /**
+     * 列表页数据展示
+     * @param Request $request
+     * @return View
+     */
     public function index(Request $request)
     {
-        $ss = $request->user()->addresses;
-        p($ss);die;
         return view('user_addresses.index', [
             'addresses' => $request->user()->addresses,
         ]);
     }
+
+    /**
+     * 新增 and 修改页面
+     * @return View
+     */
+    public function create()
+    {
+        return view('user_addresses.create_and_edit', ['address' => new UserAddress()]);
+    }
+
+    /**
+     * 新增收货地址
+     * @param UserAddress $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(UserAddressRequest $request)
+    {
+        $request->user()->addresses()->create($request->only([
+            'province', 'city', 'district', 'address', 'zip', 'contact_name', 'contact_phone'
+        ]));
+        return redirect()->route('user_addresses.index');
+    }
 }
 
-alias.gaa="git add -A"
-alias.gs="git status"
-alias.gc="git commit -m"
-alias.gp="git push"
-alias.gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(13)<%an>%Creset' --abbrev-commit"
-alias.gl2="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(13)<%an>%Creset' --abbrev-commit"
-alias.gl3="git log --pretty=format:'%h - %an -%ad -%s' --graph"
-alias.gl4="git log --color --graph --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(yellow)%d%C(13)<%an>%Creset' --abbrev-commit"
 
